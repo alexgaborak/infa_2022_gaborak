@@ -1,16 +1,18 @@
-import turtle as t
+import turtle
 
-def circ(r):
-    N = 200
+def circle(radius):
+    number_of_sides = 200
     pi = 3.1415926
-    for i in range(N):
-        t.forward(2 * pi * r / N)
-        t.left(180 - 180 * (N - 2) / N)
+    for i in range(number_of_sides):
+        turtle.forward(2 * pi * radius / number_of_sides)
+        turtle.left(180 - 180 * (number_of_sides - 2) / number_of_sides)
 
 
-r = 100
-t.penup()
-t.forward(r)
-t.left(90)
-t.pendown()
-circ(r)
+radius_value = 100
+
+turtle.speed(0)
+turtle.penup()
+turtle.forward(radius_value)
+turtle.left(90)
+turtle.pendown()
+circle(radius_value)

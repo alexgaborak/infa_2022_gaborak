@@ -1,11 +1,13 @@
 import turtle
 
-def square(side):
+def square(side_length):
     for i in range(4):
-        turtle.forward(side)
+        turtle.forward(side_length)
         turtle.left(90)
 
 step = 10
+turtle.speed(0)
+
 for i in range(step, 11 * step, step):
     square(i)
     turtle.right(135)

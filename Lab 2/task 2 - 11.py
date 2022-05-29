@@ -1,22 +1,21 @@
-import turtle as t
+import turtle
 from math import pi
 
-t.speed(0)
-
+turtle.speed(0)
 
 def circle(radius, direction):
-    n = 50
+    number_of_sides = 50
     if direction == 'left':
-        for i in range(n):
-            t.forward(2 * pi * radius / n)
-            t.left(360 / n)
+        for i in range(number_of_sides):
+            turtle.forward(2 * pi * radius / number_of_sides)
+            turtle.left(360 / number_of_sides)
     if direction == 'right':
-        for i in range(n):
-            t.forward(2 * pi * radius / n)
-            t.right(360 / n)
+        for i in range(number_of_sides):
+            turtle.forward(2 * pi * radius / number_of_sides)
+            turtle.right(360 / number_of_sides)
 
 
-t.left(90)
+turtle.left(90)
 
 for rad in range(40, 230, 8):
     for dir in 'left', 'right':

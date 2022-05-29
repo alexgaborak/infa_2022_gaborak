@@ -1,64 +1,72 @@
-import turtle as t
+import turtle
 from math import pi
 
-t.speed(0)
+turtle.speed(0)
+
 
 def circle(radius):
-    n = 100
-    for i in range(n):
-        t.forward(2 * pi * radius / n)
-        t.right(360 / n)
+    number_of_sides = 100
+    for i in range(number_of_sides):
+        turtle.forward(2 * pi * radius / number_of_sides)
+        turtle.right(360 / number_of_sides)
 
 
 def half_of_circle(radius):
-    n = 200
-    for i in range(n // 2):
-        t.forward(2 * pi * radius / n)
-        t.right(360 / n)
-                    # Морда
-t.penup()
-t.goto(0, 80)
-t.pendown()
+    number_of_sides = 200
+    for i in range(number_of_sides // 2):
+        turtle.forward(2 * pi * radius / number_of_sides)
+        turtle.right(360 / number_of_sides)
 
-t.color('black', 'yellow')
-t.begin_fill()
+
+# Морда
+
+turtle.penup()
+turtle.goto(0, 80)
+turtle.pendown()
+
+turtle.color('black', 'yellow')
+turtle.begin_fill()
 circle(80)
-t.end_fill()
+turtle.end_fill()
 
-                    # Левый глаз
-t.penup()
-t.goto(-40, 40)
-t.pendown()
+# Левый глаз
 
-t.color('black', 'blue')
-t.begin_fill()
+turtle.penup()
+turtle.goto(-40, 40)
+turtle.pendown()
+
+turtle.color('black', 'blue')
+turtle.begin_fill()
 circle(10)
-t.end_fill()
+turtle.end_fill()
 
-                    # Правый глаз
-t.penup()
-t.goto(40, 40)
-t.pendown()
+# Правый глаз
 
-t.color('black', 'blue')
-t.begin_fill()
+turtle.penup()
+turtle.goto(40, 40)
+turtle.pendown()
+
+turtle.color('black', 'blue')
+turtle.begin_fill()
 circle(10)
-t.end_fill()
+turtle.end_fill()
 
-                    # Нос
-t.color('black')
-t.penup()
-t.goto(0, 20)
-t.pendown()
-t.right(90)
-t.width(8)
-t.forward(30)
+# Нос
 
-                    # Рот
-t.penup()
-t.goto(60, 0)
-t.pendown()
+turtle.color('black')
+turtle.penup()
+turtle.goto(0, 20)
+turtle.pendown()
+turtle.right(90)
+turtle.width(8)
+turtle.forward(30)
 
-t.color('red')
-t.width(10)
+# Рот
+
+turtle.penup()
+turtle.goto(60, 0)
+turtle.pendown()
+
+turtle.color('red')
+turtle.width(10)
 half_of_circle(60)
