@@ -8,13 +8,16 @@ def min_integer(numba):
 
     strokumba = str(pumba)
     zero = strokumba.count('0')
-    one = strokumba.count('1')
     if numba > 0:
+        for i in range(1, 10):
+            if strokumba.count(str(i)) != 0:
+                first = i
+                break
         hren = ''
         for i in range(10):
             hren = hren + str(i)
-        result = hren[1] + hren[0]*zero + hren[1]*(one - 1)
-        for i in range(2, 10):
+        result = hren[first] + hren[0]*zero + hren[first]*(strokumba.count(str(first)) - 1)
+        for i in range(first + 1, 10):
             result = result + hren[i]*strokumba.count(str(i))
         return int(result)
     elif numba < 0:
@@ -23,3 +26,4 @@ def min_integer(numba):
             result = result + strokumba.count(str(i))*str(i)
         return -int(result)
 
+print(min_integer(-230579))
