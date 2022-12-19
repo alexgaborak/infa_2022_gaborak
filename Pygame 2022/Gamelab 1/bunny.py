@@ -10,13 +10,13 @@ screen = pygame.display.set_mode((400, 400))
 
 
 def draw_hare(surface, x, y, width, height, color):
-    '''
+    """
     Рисует зайца на экране.
     surface - объект pygame.Surface
     x, y - координаты центра изображения
-    width, height - ширина и высота изобажения
+    width, height - ширина и высота изображения
     color - цвет, заданный в формате, подходящем для pygame.Color
-    '''
+    """
     body_width = width // 2
     body_height = height // 2
     body_y = y + body_height // 2
@@ -37,50 +37,51 @@ def draw_hare(surface, x, y, width, height, color):
 
 
 def draw_body(surface, x, y, width, height, color):
-    '''
+    """
     Рисует тело зайца.
     surface - объект pygame.Surface
     x, y - координаты центра изображения
-    width, height - ширина и высота изобажения
+    width, height - ширина и высота изображения
     color - цвет, заданный в формате, подходящем для pygame.Color
-    '''
+    """
     ellipse(surface, color, (x - width // 2, y - height // 2, width, height))
 
 
 def draw_head(surface, x, y, size, color):
-    '''
+    """
     Рисует голову зайца.
     surface - объект pygame.Surface
     x, y - координаты центра изображения
     size - диаметр головы
     color - цвет, заданный в формате, подходящем для pygame.Color
-    '''
+    """
     circle(surface, color, (x, y), size // 2)
 
 
 def draw_ear(surface, x, y, width, height, color):
-    '''
+    """
     Рисует ухо зайца.
     surface - объект pygame.Surface
     x, y - координаты центра изображения
-    width, height - ширина и высота изобажения
+    width, height - ширина и высота изображения
     color - цвет, заданный в формате, подходящем для pygame.Color
-    '''
+    """
     ellipse(surface, color, (x - width // 2, y - height // 2, width, height))
 
 
 def draw_leg(surface, x, y, width, height, color):
-    '''
+    """
     Рисует ногу зайца.
     surface - объект pygame.Surface
     x, y - координаты центра изображения
-    width, height - ширина и высота изобажения
+    width, height - ширина и высота изображения
     color - цвет, заданный в формате, подходящем для pygame.Color
-    '''
+    """
     ellipse(surface, color, (x - width // 2, y - height // 2, width, height))
 
 
 pygame.display.update()
+draw_hare(screen, 200, 200, 200, 200, (0, 255, 0))
 clock = pygame.time.Clock()
 finished = False
 
