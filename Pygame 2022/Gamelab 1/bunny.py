@@ -80,8 +80,8 @@ def draw_leg(surface, x, y, width, height, color):
     ellipse(surface, color, (x - width // 2, y - height // 2, width, height))
 
 
+draw_hare(screen, 200, 200, 200, 200, (255, 0, 0))
 pygame.display.update()
-draw_hare(screen, 200, 200, 200, 200, (0, 255, 0))
 clock = pygame.time.Clock()
 finished = False
 
