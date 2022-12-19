@@ -12,9 +12,25 @@ canv = tk.Canvas(root, bg='white')
 canv.pack(fill=tk.BOTH, expand=1)
 
 
-class ball():
+def hittest(obj):
+    """Функция проверяет, сталкивается ли данный объект с целью, описываемой в объекте obj.
+
+    Args:
+        obj: Объект, с которым проверяется столкновение.
+    Returns:
+        Возвращает True в случае столкновения мяча и цели. В противном случае возвращает False.
+    """
+    # FIXME
+    if True:
+        pass
+    # FIXME
+    else:
+        return False
+
+
+class Ball:
     def __init__(self, x=40, y=450):
-        """ Конструктор класса ballpack
+        """ Конструктор класса ball
 
         Args:
         x - начальное положение мяча по горизонтали
@@ -55,22 +71,8 @@ class ball():
         self.x += self.vx
         self.y -= self.vy
 
-    def hittest(self, obj):
-        """Функция проверяет сталкивалкивается ли данный обьект с целью, описываемой в обьекте obj.
 
-        Args:
-            obj: Обьект, с которым проверяется столкновение.
-        Returns:
-            Возвращает True в случае столкновения мяча и цели. В противном случае возвращает False.
-        """
-        # FIXME
-        if
-        
-        else
-            return False
-
-
-class gun():
+class Gun:
     self.f2_power = 10
     self.f2_on = 0
     self.an = 1
@@ -87,7 +89,7 @@ class gun():
         """
         global balls, bullet
         bullet += 1
-        new_ball = ball()
+        new_ball = Ball()
         new_ball.r += 5
         self.an = math.atan((event.y-new_ball.y) / (event.x-new_ball.x))
         new_ball.vx = self.f2_power * math.cos(self.an)
@@ -144,13 +146,13 @@ class target():
 
 t1 = target()
 screen1 = canv.create_text(400, 300, text='', font='28')
-g1 = gun()
+g1 = Gun()
 bullet = 0
 balls = []
 
 
 def new_game(event=''):
-    global gun, t1, screen1, balls, bullet
+    global Gun, t1, screen1, balls, bullet
     t1.new_target()
     bullet = 0
     balls = []
@@ -174,7 +176,7 @@ def new_game(event=''):
         g1.targetting()
         g1.power_up()
     canv.itemconfig(screen1, text='')
-    canv.delete(gun)
+    canv.delete(Gun)
     root.after(750, new_game)
 
 
