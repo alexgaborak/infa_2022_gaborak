@@ -79,8 +79,8 @@ def new_special_figure():  # пока третий шарик
     x_2 = randint(MIN_X_OF_CENTRE, MAX_X_OF_CENTRE)
     y_2 = randint(MIN_Y_OF_CENTRE, MAX_Y_OF_CENTRE)
     r_2 = randint(MIN_RADIUS/10, MAX_RADIUS/4)
-    vx2 = random_speed()
-    vy2 = random_speed()
+    vx2 = 2 * random_speed()
+    vy2 = 2 * random_speed()
     color_2 = COLORS[randint(0, 5)]
 
 
@@ -97,9 +97,9 @@ def move_special_target():
 
 def check_click():
     """
-    Проверяем попадание по шарику (надо доделать)
+    Проверяем попадание по шарику
     :param : pygame event
-    :return Bool:
+    :return 1, 5 or 0 :
     """
 
     coord = pygame.mouse.get_pos()
@@ -109,7 +109,12 @@ def check_click():
     hit1 = (x - x_1) ** 2 + (y - y_1) ** 2 <= r_1 ** 2
     hit2 = (x - x_2) ** 2 + (y - y_2) ** 2 <= r_2 ** 2
 
-    return hit0 or hit1 or hit2
+    if hit0 or hit1:
+        return 1
+    elif hit2:
+        return 5
+    else:
+        return 0
 
 
 def random_speed():
@@ -119,14 +124,14 @@ def random_speed():
     return randint(-MAX_SPEED, MAX_SPEED)
 
 
-def reflection(v):
+def reflection(velocity_projection):
     """
     Случайное отражение от стен. (меняет проекцию скорости на рандомную другого знака)
     :return :
     """
-    if v > 0:
+    if velocity_projection > 0:
         return randint(-MAX_SPEED, 0)
-    elif v < 0:
+    elif velocity_projection < 0:
         return randint(0, MAX_SPEED)
 
 
@@ -151,6 +156,10 @@ def best_players():
 
 
 def initial_set():
+    """
+    Создаём стартовый набор целей.
+    :return:
+    """
     new_ball_0()
     new_ball_1()
     new_special_figure()
